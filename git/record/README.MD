@@ -3,7 +3,7 @@
 ## 背景
 个人习惯使用 git commit 时对 commit 信息进行格式化，如：
 > git commit -am "[BRANCH - TYPE] commit msg  # NUM"
->> BRANH: 当前分支
+>> BRANCH: 当前分支
 >>
 >> TYPE: 代表本次提交的类型，有 Init、Build、ReBuild、Update、Add、Del 等等
 >>
