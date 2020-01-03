@@ -4,7 +4,9 @@
 个人习惯使用 git commit 时对 commit 信息进行格式化，如：
 > git commit -am "[BRANCH - TYPE] commit msg  # NUM"
 >> BRANH: 当前分支
+>>
 >> TYPE: 代表本次提交的类型，有 Init、Build、ReBuild、Update、Add、Del 等等
+>>
 >> NUM: 代表提交次数，用来记录这是第几次提交
 >
 
@@ -17,13 +19,18 @@
 ## 使用方法
 usage: git_record.py [-h] [-p PROJECT] [-b BRANCH] {get,add,minus,del}
 > 查看记录: python git_record.py get   [options]
+>
 > 添加记录: python git_record.py add   [options]  必须指定 -p 和 -b 参数，如果没有记录则新增
+>
 > 减少记录: python git_record.py minus [options]  必须指定 -p 和 -b 参数，如果没有记录则提示
+>
 > 减少记录: python git_record.py del   [options]
 >
 > 注: get、del 方法参数说明
 >> 同时指定 -p 和 -b 参数表示 查看/删除 具体项目分支的记录;
+>>
 >> 只指定 -p 参数表示 查看/删除 该项目所有记录;
+>>
 >> 都不指定表示 查看/删除 所有项目所有分支的记录
 
 positional arguments:
@@ -31,7 +38,9 @@ positional arguments:
 
 optional arguments:
 > -h, --help            show this help message and exit
+>
 > -p PROJECT, --project PROJECT 项目名称
+>
 > -b BRANCH, --branch BRANCH 分支名称
 
 ## 注：
