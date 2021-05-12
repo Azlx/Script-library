@@ -1,0 +1,43 @@
+# openconnect
+function ocn(){
+    if [[ $1 ]];then
+        SERVER=$1
+    else
+        # SERVER="hk1.link.ac.cn"
+        # SERVER="tokyo.link.ac.cn:4433"
+        SERVER="tokyo2.link.ac.cn:4433"
+        # SERVER="tokyo3.link.ac.cn"
+        # SERVER="fmt3.link.ac.cn"
+        # SERVER="lax5.link.ac.cn"
+    fi
+
+    if [[ $2 ]];then
+        GROUP=$2
+    else
+        GROUP="global"
+        # GROUP="smart"
+    fi
+
+    USER="xxx"
+    PASSWORD="xxx"
+    PID_FILE="/Users/azlx/config/openconnect/openconnect.pid"
+
+    if [[ -f $PID_FILE ]];then
+        echo -e "openconnect 服务已经开启，不可重复开启！\n"
+        echo -e "已开启 openconnect 服务的PID为：$(cat $PID_FILE)\n"
+        return
+    fi
+
+    echo -e "开启openconnect: ${SERVER}\n"
+
+    echo 'xxx' |  sudo -S openconnect $SERVER --authgroup $GROUP -u $USER --passwd-on-stdin -b --pid-file $PID_FILE <<< $PASSWORD
+}
+function ocf(){
+    PID_FILE="/Users/azlx/config/openconnect/openconnect.pid"
+    if [[ -f $PID_FILE ]];then
+        echo -e "关闭PID为$(cat $PID_FILE)的 openconnect 服务\n"
+        echo 'xxx' | sudo -S kill -s SIGINT $(cat $PID_FILE)
+    else
+       echo -e "没有 openconnect 服务在运行！\n"
+    fi
+}
