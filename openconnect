@@ -20,7 +20,7 @@ function ocn(){
 
     USER="xxx"
     PASSWORD="xxx"
-    PID_FILE="/Users/azlx/config/openconnect/openconnect.pid"
+    PID_FILE="xxxxx/openconnect/openconnect.pid"
 
     if [[ -f $PID_FILE ]];then
         echo -e "openconnect 服务已经开启，不可重复开启！\n"
@@ -33,7 +33,7 @@ function ocn(){
     echo 'xxx' |  sudo -S openconnect $SERVER --authgroup $GROUP -u $USER --passwd-on-stdin -b --pid-file $PID_FILE <<< $PASSWORD
 }
 function ocf(){
-    PID_FILE="/Users/azlx/config/openconnect/openconnect.pid"
+    PID_FILE="/xxxxx/openconnect/openconnect.pid"
     if [[ -f $PID_FILE ]];then
         echo -e "关闭PID为$(cat $PID_FILE)的 openconnect 服务\n"
         echo 'xxx' | sudo -S kill -s SIGINT $(cat $PID_FILE)
